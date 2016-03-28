@@ -4,7 +4,7 @@
     <h1>Selling Your Gear?</h1>
     <hr>
 
-        <form method="POST" enctype="multipart/form-data" action="{{ link_to_route('flyers.store') }}">
+        <form method="POST" enctype="multipart/form-data" action="{{ url('flyers') }}">
             @include('flyers.form')
 
             @if(count($errors) > 0)

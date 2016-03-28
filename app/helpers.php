@@ -29,7 +29,7 @@ function flyer_path(App\Flyer $flyer){
 
 }
 
-function link_to($body, $path, $type){
+function link_to_delete($body, $path, $type){
 
 	$csrf = csrf_field();
 
