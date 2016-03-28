@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Project Flyer</title>
-    <link rel="stylesheet" href="{{ URL::asset('css/somestylesheet.css') }}" >
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
 </head>
 <body>
