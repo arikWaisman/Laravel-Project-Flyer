@@ -26,8 +26,8 @@
                             @if($user && $user->owns($flyer))
                                 {!! link_to_delete('Delete', url("/photos/{$photo->id}"), 'DELETE') !!}
                             @endif
-                            <a href="/{{ $photo->path }}" data-lightbox="flyer-photos">
-                               <img src="/{{ $photo->thumbnail_path }}" alt="">
+                            <a href="{{ url($photo->path) }}" data-lightbox="flyer-photos">
+                               <img src="{{ url($photo->thumbnail_path) }}" alt="">
                            </a>
                         </div>
                     @endforeach
