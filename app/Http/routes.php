@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +24,20 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+    Route::get('/', 'PagesController@home');
+
+    Route::resource('flyers', 'FlyersController');
+
+    Route::get('{id}/{item}', 'FlyersController@show');
+
+    Route::post('{id}/{item}/photos',['as' => 'store_photo_path', 'uses' => 'PhotosController@store']);
+
+    Route::delete('photos/{id}', 'PhotosController@destroy');
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
