@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Utilities\Country;
+
 /**
  * display a flash message
  * @param null $title
@@ -29,7 +31,7 @@ function flyer_path(App\Flyer $flyer){
 
 }
 
-function link_to_delete($body, $path, $type){
+function link_to_modify($body, $path, $type){
 
 	$csrf = csrf_field();
 
@@ -57,5 +59,13 @@ function link_to_delete($body, $path, $type){
         </form>
 EOT;
 
+
+}
+
+function countries_select_loop($countries ){
+
+	foreach($countries::all() as $country => $code) {
+		return "<option value='{$code}'>{$country}</option>";
+    }
 
 }

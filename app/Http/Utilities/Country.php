@@ -252,6 +252,14 @@ class Country {
 
 	}
 
+	public static function countries_select_loop(){
+
+		foreach(static::$countries as $country => $code) {
+			echo  "<option value='{$code}'>{$country}</option>";
+		}
+
+	}
+
 }
 
 

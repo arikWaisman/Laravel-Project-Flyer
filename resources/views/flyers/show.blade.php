@@ -10,8 +10,11 @@
             <h2>{{ $flyer->price }}</h2>
 
             <div class="description">{!! nl2br($flyer->description) !!}</div>
-        </div>
 
+            {!! Form::model($flyer, ['action' => ['FlyersController@edit', $flyer->id, $flyer->item], 'method' => 'GET']) !!}
+                {!! Form::submit('Edit Flyer', ['class'=>'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        </div>
 
         <div class="col-md-8 gallery">
             @foreach($flyer->photos->chunk(4) as $set )
@@ -24,7 +27,7 @@
                                 {{--<button type="submit">Delete</button>--}}
                             {{--</form>--}}
                             @if($user && $user->owns($flyer))
-                                {!! link_to_delete('Delete', url("/photos/{$photo->id}"), 'DELETE') !!}
+                                {!! link_to_modify('Delete', url("/photos/{$photo->id}"), 'DELETE') !!}
                             @endif
                             <a href="{{ url($photo->path) }}" data-lightbox="flyer-photos">
                                <img src="{{ url($photo->thumbnail_path) }}" alt="">

@@ -3,9 +3,9 @@
 @section('content')
     <h1>Selling Your Gear?</h1>
     <hr>
-
-        <form method="POST" enctype="multipart/form-data" action="{{ url('flyers') }}">
-            @include('flyers.form')
+        {!! Form::model(new App\Flyer, ['route' => ['flyers.store']]) !!}
+        {{--<form method="POST" enctype="multipart/form-data" action="{{ url('flyers') }}">--}}
+            @include('flyers.form', ['submit_text' => 'Create Flyer'])
 
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
@@ -17,7 +17,8 @@
                 </div>
             @endif
 
-        </form>
+        {{--</form>--}}
+        {!! Form::close() !!}
 
 
 @stop

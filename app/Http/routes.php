@@ -31,6 +31,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('{id}/{item}', 'FlyersController@show');
 
+    Route::get('{id}/{item}/edit', 'FlyersController@edit');
+
+    Route::post('{id}/{item}', ['as' => 'flyer_update_path','uses' => 'FlyersController@update']);
+
     Route::post('{id}/{item}/photos',['as' => 'store_photo_path', 'uses' => 'PhotosController@store']);
 
     Route::delete('photos/{id}', 'PhotosController@destroy');

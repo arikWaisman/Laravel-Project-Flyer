@@ -83,10 +83,13 @@ class FlyersController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     *
      */
-    public function edit($id)
+    public function edit($id, $item)
     {
-        //
+        $flyer = Flyer::whereIdAndItemAre($id, $item);
+
+        return view('flyers.edit', compact('flyer'));
     }
 
     /**
@@ -96,9 +99,16 @@ class FlyersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FlyerRequest $request, $id)
     {
-        //
+
+        $flyer = Flyer::where(compact('id'))->firstOrFail();
+        $flyer->update($request->all());
+
+        flash()->success('Success!','Your flyer has been updated!');
+
+        //redirect
+        return redirect(flyer_path($flyer));
     }
 
     /**
