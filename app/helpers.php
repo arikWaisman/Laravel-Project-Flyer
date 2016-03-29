@@ -34,6 +34,7 @@ function flyer_path(App\Flyer $flyer){
 function link_to_modify($body, $path, $type){
 
 	$csrf = csrf_field();
+	$imgURL = url('images/close.png');
 
 	if(is_object($path)){
 
@@ -52,10 +53,10 @@ function link_to_modify($body, $path, $type){
 	}
 
 	return <<<EOT
-		<form method="POST" action="{$action}">
+		<form method="POST" action="{$action}" class="delete-image-form">
 			{$csrf}
             <input type="hidden" name="_method" value="{$type}">
-            <button type="submit">{$body}</button>
+            <input type="image" src="{$imgURL}" alt="Delete" class="delete-image">
         </form>
 EOT;
 
