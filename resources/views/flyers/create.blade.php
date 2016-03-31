@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Selling Your Gear?</h1>
+    <h1>Selling Something?</h1>
     <hr>
         {!! Form::model(new App\Flyer, ['route' => ['flyers.store']]) !!}
         {{--<form method="POST" enctype="multipart/form-data" action="{{ url('flyers') }}">--}}

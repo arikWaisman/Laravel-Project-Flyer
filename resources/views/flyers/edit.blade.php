@@ -1,11 +1,15 @@
 @extends('layout')
 
 @section('content')
-    <h1>Selling Your Gear?</h1>
+    <h1>Selling Something?</h1>
     <hr>
     {!! Form::model($flyer, ['method' => 'PATCH', 'route' => ['flyers.update', $flyer->id ]]) !!}
-    {{--<form method="POST" enctype="multipart/form-data" action="{{ url('flyers') }}">--}}
-    @include('flyers.form', ['submit_text' => 'Update Flyer'])
+         @include('flyers.form', ['submit_text' => 'Update Flyer'])
+    {!! Form::close() !!}
+
+    {!! Form::model($flyer, ['method' => 'DELETE', 'route' => ['flyers.destroy', $flyer->id]]) !!}
+        {!! Form::submit('Delete Flyer', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
 
     @if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -17,7 +21,6 @@
         </div>
     @endif
 
-    {{--</form>--}}
 
 
 @stop

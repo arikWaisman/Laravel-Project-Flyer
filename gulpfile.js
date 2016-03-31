@@ -13,7 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
-    mix.scripts(['jquery/dist/jquery.js','sweetalert/dist/sweetalert-dev.js', 'lightbox2/dist/js/lightbox.js'],
+    mix.scripts(['jquery/dist/jquery.js','sweetalert/dist/sweetalert-dev.js', 'lightbox2/dist/js/lightbox.js','bootstrap-sass/assets/javascripts/bootstrap.js' ],
         'public/js/libs.js',
         'node_modules/');
     //mix.scripts('js', 'public/js/all.js', 'public/' );

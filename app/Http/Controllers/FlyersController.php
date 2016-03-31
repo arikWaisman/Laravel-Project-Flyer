@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Flyer;
-
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use App\Http\Requests\FlyerRequest;
+use Illuminate\Support\Facades\Auth;
 
 
 class FlyersController extends Controller
@@ -29,7 +30,9 @@ class FlyersController extends Controller
      */
     public function index()
     {
-        //
+        $flyers = Flyer::where( 'user_id', Auth::id() )->get();
+
+        return view('flyers.index', compact('flyers'));
     }
 
     /**
@@ -119,6 +122,8 @@ class FlyersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Flyer::findOrFail($id)->delete();
+
+        return redirect('/flyers');
     }
 }

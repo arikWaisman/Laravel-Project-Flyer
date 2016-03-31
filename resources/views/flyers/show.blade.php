@@ -10,10 +10,14 @@
             <h2>{{ $flyer->price }}</h2>
 
             <div class="description">{!! nl2br($flyer->description) !!}</div>
+            @if($user && $user->owns($flyer))
 
-            {!! Form::model($flyer, ['action' => ['FlyersController@edit', $flyer->id, $flyer->item], 'method' => 'GET']) !!}
-                {!! Form::submit('Edit Flyer', ['class'=>'btn btn-primary']) !!}
-            {!! Form::close() !!}
+                {!! Form::model($flyer, ['action' => ['FlyersController@edit', $flyer->id, $flyer->item], 'method' => 'GET', 'class' => 'edit-flyer-form-button']) !!}
+                    {!! Form::submit('Edit Flyer', ['class'=>'btn btn-primary']) !!}
+                {!! Form::close() !!}
+
+            @endif
+
         </div>
 
         <div class="col-md-8 gallery">

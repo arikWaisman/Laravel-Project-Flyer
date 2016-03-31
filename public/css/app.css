@@ -6841,15 +6841,11 @@ body:after {
 .form-control {
   height: 40px; }
 
-body {
-  padding-top: 70px; }
-
 img {
   max-width: 100%; }
 
-.gallery_image {
-  margin-bottom: 1em;
-  position: relative; }
+.edit-flyer-form-button {
+  padding-top: 15px; }
 
 .delete-image-form {
   position: absolute;
@@ -6860,5 +6856,12 @@ img {
   height: 22px;
   padding: 3px;
   background: rgba(0, 0, 0, 0.8); }
+
+.gallery_image {
+  margin-bottom: 1em;
+  position: relative; }
+
+body {
+  padding-top: 70px; }
 
 /*# sourceMappingURL=app.css.map */
