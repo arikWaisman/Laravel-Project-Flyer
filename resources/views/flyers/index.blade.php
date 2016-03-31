@@ -9,7 +9,7 @@
     @endif
 
     @foreach($flyers as $flyer)
-        <a href="{{ url("/{$flyer->id}/{$flyer->item}") }}">{{ ucfirst($flyer->item) }}</a>
+        <a href="{{ url("/{$flyer->id}/{$flyer->item}") }}">{{ ucfirst($flyer->item) }}</a><hr>
     @endforeach
 
 @stop
